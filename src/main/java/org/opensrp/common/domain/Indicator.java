@@ -3,7 +3,7 @@ package org.opensrp.common.domain;
 import static org.apache.commons.lang.StringUtils.equalsIgnoreCase;
 
 public enum Indicator {
-    // FP Indicators
+    //FP Indicators
 	FP_OCP("OCP"),
 	FP_IUD("IUD"),
 	FP_MALE_STERILIZATION("MALE_STERILIZATION"),
@@ -19,7 +19,7 @@ public enum Indicator {
 	FP_FEMALE_STERILIZATION_BPL("FS_BPL"),
 	CONDOM_QTY("CONDOM_QTY"),
 	
-    // ANC Indicators
+    //ANC Indicators
 	ANC("ANC"),
 	ANC_BEFORE_12_WEEKS("ANC_LT_12"),
 	ANC_AFTER_12_WEEKS("ANC_GT_12"),
@@ -38,7 +38,7 @@ public enum Indicator {
 	MMD("MMD"),
 	MMP("MMP"),
 	
-    // Delivery Outcome Indicators
+    //Delivery Outcome Indicators
 	LIVE_BIRTH("LIVE_BIRTH"),
 	STILL_BIRTH("STILL_BIRTH"),
 	DELIVERY("DELIVERY"),
@@ -54,10 +54,10 @@ public enum Indicator {
 	CESAREAN_PRIVATE_FACILITY("CESAREAN_PRI"),
 	CESAREAN_GOVERNMENT_FACILITY("CESAREAN_GOV"),
 	
-    // PNC Indicators
+    //PNC Indicators
 	PNC3("PNC3"),
 	
-    // Child Birth Indicators
+    //Child Birth Indicators
 	LBW("LBW"),
 	BF_POST_BIRTH("BF_POST_BIRTH"),
 	WEIGHED_AT_BIRTH("WEIGHED_AT_BIRTH"),
@@ -67,7 +67,7 @@ public enum Indicator {
 	
 	CHILD_DIARRHEA("CHILD_DIARRHEA"),
 	
-    // Child Immunization Indicators
+    //Child Immunization Indicators
 	DPT("DPT"),
 	PENTAVALENT3_OR_OPV3("PENTAVALENT3_OPV3"),
 	DPT_BOOSTER_OR_OPV_BOOSTER("DPTB_OPVB"),
@@ -85,7 +85,7 @@ public enum Indicator {
 	OPV_BOOSTER("OPV_BOOSTER"),
 	DPT_BOOSTER1("DPT_BOOSTER_1"),
 	
-    // Vitamin A Indicators
+    //Vitamin A Indicators
 	VIT_A_1("VIT_A_1"),
 	VIT_A_1_FOR_FEMALE_CHILD("F_VIT_A_1"),
 	VIT_A_1_FOR_MALE_CHILD("M_VIT_A_1"),
@@ -99,7 +99,7 @@ public enum Indicator {
 	VIT_A_FOR_FEMALE("F_VIT_A"),
 	VIT_A_FOR_MALE("M_VIT_A"),
 	
-    // Child Mortality Indicators
+    //Child Mortality Indicators
 	NM("NM"),
 	LNM("LNM"),
 	ENM("ENM"),
@@ -107,7 +107,7 @@ public enum Indicator {
 	CHILD_MORTALITY_DUE_TO_DIARRHEA("CMD"),
 	CHILD_MORTALITY("UFM"),
 	
-    // Infant Balance
+    //Infant Balance
 	INFANT_BALANCE_TOTAL("IBT"),
 	INFANT_BALANCE_ON_HAND("IB_OH"),
 	INFANT_LEFT("INFANT_LEFT"),
@@ -117,7 +117,7 @@ public enum Indicator {
 	INFANT_BALANCE_LESS_THAN_ONE_YEAR("IB_LT_1Y"),
 	INFANT_BALANCE_LESS_THAN_FIVE_YEAR("IB_LT_5Y"),
 	
-    // NRHM Indicators
+    //NRHM Indicators
 	NRHM_JSY_REG("NRHM_JSY_REG"),
 	NRHM_ANC3("NRHM_ANC3"),
 	NRHM_SBA("NRHM_SBA"),
@@ -138,7 +138,7 @@ public enum Indicator {
 	NRHM_BF_POST_BIRTH("NRHM_BF_POST_BIRTH"),
 	NRHM_SPONTANEOUS_ABORTION("NRHM_SPONTANEOUS_ABORTION"),
 	
-    // NRHM Child Immunization Indicators
+    //NRHM Child Immunization Indicators
 	NRHM_BCG_1YR("NRHM_BCG_1YR"),
 	NRHM_PENT_1_1YR("NRHM_PENT_1_1YR"),
 	NRHM_PENT_2_1YR("NRHM_PENT_2_1YR"),
@@ -166,38 +166,38 @@ public enum Indicator {
 	NRHM_VIT_A_9_3YR("NRHM_VIT_A_9_3YR"),
 	NRHM_DPTBOOSTER_2_5YR("NRHM_DPTBOOSTER_2_5YR"),
 	
-    // Economic status indicators
+    //Economic status indicators
 	ANCS_AND_PNCS_WITH_BPL("ANCS_AND_PNCS_WITH_BPL"),
 	
-    // Family planning Indicators
+    //Family planning Indicators
 	NRHM_IUDREM("NRHM_IUDREM"),
 	NRHM_OCP_STRIPS("NRHM_OCP_STRIPS"),
 	NRHM_CENTCHROMAN_PILLS("NRHM_CENTCHROMAN_PILLS"),
 	NRHM_ECP("NRHM_ECP"),
 	
-    // FP complication Indicators
+    //FP complication Indicators
 	NRHM_M_S_COMP("NRHM_M_S_COMP"),
 	NRHM_F_S_COMP("NRHM_F_S_COMP"),
 	NRHM_S_COMP("NRHM_S_COMP"),
 	
-    // FP failure Indicators
+    //FP failure Indicators
 	NRHM_M_S_FAILURE("NRHM_M_S_FAILURE"),
 	NRHM_F_S_FAILURE("NRHM_F_S_FAILURE"),
 	NRHM_S_FAILURE("NRHM_S_FAILURE"),
 	
-    // FP Death Indicators
+    //FP Death Indicators
 	NRHM_M_S_DEATH("NRHM_M_S_DEATH"),
 	NRHM_F_S_DEATH("NRHM_F_S_DEATH"),
 	NRHM_S_DEATH("NRHM_S_DEATH"),
 	
 	NRHM_IFA_100("NRHM_IFA_100"),
 	
-    // Child disease Indicators
+    //Child disease Indicators
 	NRHM_MEASLES("NRHM_MEASLES"),
 	NRHM_DIARRHEA_DEHYDRATION("NRHM_DIARRHEA_DEHYDRATION"),
 	NRHM_MALARIA("NRHM_MALARIA"),
 	
-    // Infant Death Indicators
+    //Infant Death Indicators
 	NRHM_ID_24HRS("NRHM_ID_24HRS"),
 	NRHM_ID_SEPSIS("NRHM_ID_SEPSIS"),
 	NRHM_ID_ASPHYXIA("NRHM_ID_ASPHYXIA"),
