@@ -18,6 +18,7 @@
 		<motech.version>0.11</motech.version>
 		<spring.version>3.1.0.RELEASE</spring.version>
 		<opensrp.updatePolicy>always</opensrp.updatePolicy>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<maven-deploy-plugin.version>2.8.1</maven-deploy-plugin.version>
 		<nexus-staging-maven-plugin.version>1.5.1</nexus-staging-maven-plugin.version>
 		<maven-release-plugin.version>2.4.2</maven-release-plugin.version>
@@ -253,6 +254,35 @@
 					<nexusUrl>https://oss.sonatype.org/</nexusUrl>
 					<skipStaging>true</skipStaging>
 				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.jacoco</groupId>
+				<artifactId>jacoco-maven-plugin</artifactId>
+				<version>0.7.9</version>
+				<configuration>
+					<destFile>${basedir}/target/coverage-reports/jacoco-unit.exec</destFile>
+					<dataFile>${basedir}/target/coverage-reports/jacoco-unit.exec</dataFile>
+				</configuration>
+				<executions>
+					<execution>
+						<id>jacoco-initialize</id>
+						<goals>
+							<goal>prepare-agent</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>jacoco-site</id>
+						<phase>test</phase>
+						<goals>
+							<goal>report</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.eluder.coveralls</groupId>
+				<artifactId>coveralls-maven-plugin</artifactId>
+				<version>4.0.0</version>
 			</plugin>
 		</plugins>
 	</build>
