@@ -114,6 +114,8 @@ public class AllConstants {
 		public static final String MVACC_UUID_IDENTIFIER_TYPE = "MVACC_UUID";
 		
 		public static final String BIRTH_REGISTRATION = "Birth Registration";
+
+		public static final String SETTING_CONFIGURATIONS = "settingConfigurations";
 		
 	}
 	
