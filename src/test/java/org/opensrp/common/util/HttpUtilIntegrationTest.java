@@ -16,12 +16,12 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Modifier;
 import java.net.URISyntaxException;
 
+import org.apache.commons.codec.binary.Base64;
 import org.apache.http.Header;
 import org.apache.http.client.methods.HttpRequestBase;
 import org.junit.Assert;
 import org.junit.Test;
 
-import sun.misc.BASE64Encoder;
 
 public class HttpUtilIntegrationTest {
 	
@@ -67,7 +67,6 @@ public class HttpUtilIntegrationTest {
 		String payLoad = "";
 		RequestMethod method = RequestMethod.GET;
 		HttpUtil.AuthType authType = HttpUtil.AuthType.NONE;
-		
 		HttpRequestBase requestBase = makeConnection(url, payLoad, method, authType, "");
 		
 		assertEquals(expectedUrl, requestBase.getURI().toString());
@@ -163,7 +162,7 @@ public class HttpUtilIntegrationTest {
 		RequestMethod method = RequestMethod.PUT;
 		HttpUtil.AuthType authType = HttpUtil.AuthType.BASIC;
 		String authString = "userName:pass";
-		String expectedAuthString = "Basic " + new BASE64Encoder().encode(authString.getBytes());
+		String expectedAuthString = "Basic " + new String(Base64.encodeBase64(authString.getBytes()));
 		
 		HttpRequestBase requestBase = makeConnection(url, "", method, authType, authString);
 		Header[] headers = requestBase.getHeaders("Authorization");
