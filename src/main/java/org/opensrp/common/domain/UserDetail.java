@@ -13,6 +13,8 @@ public class UserDetail implements Serializable {
 	@JsonProperty
 	private List<String> roles;
 	
+	private String preferredName;
+	
 	public UserDetail(String userName, List<String> roles) {
 		this.userName = userName;
 		this.roles = roles;
@@ -25,4 +27,13 @@ public class UserDetail implements Serializable {
 	public List<String> roles() {
 		return roles;
 	}
+
+	public String getPreferredName() {
+		return preferredName;
+	}
+
+	public void setPreferredName(String preferredName) {
+		this.preferredName = preferredName;
+	}
+	
 }
