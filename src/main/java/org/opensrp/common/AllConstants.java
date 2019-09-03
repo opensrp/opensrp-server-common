@@ -88,6 +88,10 @@ public class AllConstants {
 		
 		public static final String PROVIDERID = "providerId";
 		
+		public static final String PAGENUMBER = "pageNumber";
+		
+		public static final String PAGESIZE = "pageSize";
+		
 		public static final String OPENMRS_UUID_IDENTIFIER_TYPE = "OPENMRS_UUID";
 	}
 	
