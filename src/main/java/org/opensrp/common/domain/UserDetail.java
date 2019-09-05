@@ -20,11 +20,11 @@ public class UserDetail implements Serializable {
 		this.roles = roles;
 	}
 	
-	public String userName() {
+	public String getUserName() {
 		return userName;
 	}
 	
-	public List<String> roles() {
+	public List<String> getRoles() {
 		return roles;
 	}
 
