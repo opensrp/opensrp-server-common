@@ -92,6 +92,14 @@ public class AllConstants {
 		
 		public static final String PAGESIZE = "pageSize";
 		
+		public static final String ORDERBYFIELD = "orderByField";
+		
+		public static final String DEFAULTORDERBYFIELD = "date_created";
+		
+		public static final String ORDERBYTYPE = "orderByType";
+		
+		public static final String DEFAULTORDERBYTYPE = "desc";
+		
 		public static final String OPENMRS_UUID_IDENTIFIER_TYPE = "OPENMRS_UUID";
 	}
 	
