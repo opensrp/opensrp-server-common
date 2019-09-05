@@ -20,10 +20,10 @@ public class UserDetailTest {
 		rolesList.add("FD");
 		UserDetail userDetail = new UserDetail("real", rolesList);
 		userDetail.setPreferredName("preferredName");
-		assertEquals("real", userDetail.userName());
-		assertNotSame("peal", userDetail.userName());
-		assertEquals("TLI", userDetail.roles().get(0));
-		assertNotSame("TLI", userDetail.roles().get(1));
+		assertEquals("real", userDetail.getUserName());
+		assertNotSame("peal", userDetail.getUserName());
+		assertEquals("TLI", userDetail.getRoles().get(0));
+		assertNotSame("TLI", userDetail.getRoles().get(1));
 		assertEquals("preferredName", userDetail.getPreferredName());
 	}
 }
