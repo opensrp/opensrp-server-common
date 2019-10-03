@@ -88,17 +88,29 @@ public class AllConstants {
 		
 		public static final String PROVIDERID = "providerId";
 		
-		public static final String PAGENUMBER = "pageNumber";
+		public static final String PAGENUMBER = "currentPageNumber";
 		
-		public static final String PAGESIZE = "pageSize";
+		public static final String PAGESIZE = "paginationCount";
 		
-		public static final String ORDERBYFIELD = "orderByField";
+		public static final String ORDERBYFIELDNAAME = "orderByFieldName";
 		
 		public static final String DEFAULTORDERBYFIELD = "date_created";
 		
 		public static final String ORDERBYTYPE = "orderByType";
 		
 		public static final String DEFAULTORDERBYTYPE = "desc";
+		
+		public static final String SEARCHTEXT = "searchText";
+		
+		public static final String LOCATION = "location";
+		
+		public static final String HOUSEHOLD = "ec_household";
+		
+		public static final String HOUSEHOLDMEMEBR = "householdMember";
+		
+		public static final String CHILD = "ec_child";
+		
+		public static final String ANC = "ec_woman";
 		
 		public static final String OPENMRS_UUID_IDENTIFIER_TYPE = "OPENMRS_UUID";
 	}
