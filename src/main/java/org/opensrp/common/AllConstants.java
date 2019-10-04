@@ -84,6 +84,34 @@ public class AllConstants {
 		
 		public static final String ZEIR_ID = "zeir_id";
 		
+		public static final String CLIENTTYPE = "clientType";
+		
+		public static final String PROVIDERID = "providerId";
+		
+		public static final String PAGENUMBER = "currentPageNumber";
+		
+		public static final String PAGESIZE = "paginationCount";
+		
+		public static final String ORDERBYFIELDNAAME = "orderByFieldName";
+		
+		public static final String DEFAULTORDERBYFIELD = "date_created";
+		
+		public static final String ORDERBYTYPE = "orderByType";
+		
+		public static final String DEFAULTORDERBYTYPE = "desc";
+		
+		public static final String SEARCHTEXT = "searchText";
+		
+		public static final String LOCATION = "location";
+		
+		public static final String HOUSEHOLD = "ec_household";
+		
+		public static final String HOUSEHOLDMEMEBR = "householdMember";
+		
+		public static final String CHILD = "ec_child";
+		
+		public static final String ANC = "ec_woman";
+		
 		public static final String OPENMRS_UUID_IDENTIFIER_TYPE = "OPENMRS_UUID";
 	}
 	
@@ -114,7 +142,7 @@ public class AllConstants {
 		public static final String MVACC_UUID_IDENTIFIER_TYPE = "MVACC_UUID";
 		
 		public static final String BIRTH_REGISTRATION = "Birth Registration";
-
+		
 		public static final String SETTING_CONFIGURATIONS = "settingConfigurations";
 		
 	}
@@ -301,8 +329,7 @@ public class AllConstants {
 	}
 	
 	public enum Config {
-		FORM_ENTITY_PARSER_LAST_SYNCED_FORM_SUBMISSION,
-		FORM_ENTITY_PARSER_LAST_MIGRATED_FORM_SUBMISSION, // Used when executing data migrations
+		FORM_ENTITY_PARSER_LAST_SYNCED_FORM_SUBMISSION, FORM_ENTITY_PARSER_LAST_MIGRATED_FORM_SUBMISSION, // Used when executing data migrations
 		EVENTS_PARSER_LAST_PROCESSED_EVENT // Used to track last time events processed
 	}
 	
