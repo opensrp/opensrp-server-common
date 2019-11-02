@@ -16,7 +16,7 @@
 	<properties>
 		<main.basedir>${project.basedir}</main.basedir>
 		<motech.version>0.11</motech.version>
-		<spring.version>3.1.0.RELEASE</spring.version>
+		<spring.version>5.2.0.RELEASE</spring.version>
 		<opensrp.updatePolicy>always</opensrp.updatePolicy>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<nexus-staging-maven-plugin.version>1.5.1</nexus-staging-maven-plugin.version>
