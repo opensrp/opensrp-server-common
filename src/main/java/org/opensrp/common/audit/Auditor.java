@@ -10,10 +10,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.locks.ReentrantLock;
-import java.util.logging.Logger;
 
 import org.joda.time.DateTime;
-import org.opensrp.common.util.DateUtil;
+import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -49,7 +48,7 @@ public class Auditor {
 			return messages;
 		}
 		
-		int index = binarySearch(messages, new AuditMessage(DateUtil.now(), messageIndex, NORMAL, null));
+		int index = binarySearch(messages, new AuditMessage(new DateTime(), messageIndex, NORMAL, null));
 		int position = Math.abs(index + 1);
 		
 		if (position >= messages.size()) {
@@ -68,7 +67,7 @@ public class Auditor {
 	private void createAuditMessage(AuditMessageType messageType, Map<String, String> data) {
 		lock.lock();
 		try {
-			AuditMessage auditMessage = new AuditMessage(DateUtil.now(), messageIndex, messageType, data);
+			AuditMessage auditMessage = new AuditMessage(new DateTime(), messageIndex, messageType, data);
 			messages.add(auditMessage);
 			messageIndex++;
 			logger.debug(MessageFormat.format("Added message: {0}", auditMessage));

@@ -1,8 +1,7 @@
 package org.opensrp.common.monitor;
 
-import java.util.logging.Logger;
-
-import org.opensrp.common.util.DateUtil;
+import org.joda.time.DateTime;
+import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
@@ -22,6 +21,6 @@ public class Monitor {
 	}
 	
 	public void addObservationFor(Metric metric, long value) {
-		logger.info(metric.name() + " " + value + " " + DateUtil.now().getMillis());
+		logger.info(metric.name() + " " + value + " " + DateTime.now().getMillis());
 	}
 }
