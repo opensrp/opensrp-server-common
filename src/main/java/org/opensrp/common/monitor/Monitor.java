@@ -1,7 +1,8 @@
 package org.opensrp.common.monitor;
 
-import org.motechproject.util.DateUtil;
-import org.slf4j.Logger;
+import java.util.logging.Logger;
+
+import org.opensrp.common.util.DateUtil;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 

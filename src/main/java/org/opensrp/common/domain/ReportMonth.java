@@ -4,9 +4,9 @@ import static org.opensrp.common.AllConstants.Report.FIRST_REPORT_MONTH_OF_YEAR;
 import static org.opensrp.common.AllConstants.Report.REPORTING_MONTH_END_DAY;
 import static org.opensrp.common.AllConstants.Report.REPORTING_MONTH_START_DAY;
 
+import java.time.LocalDate;
 import java.util.Date;
 
-import org.joda.time.LocalDate;
 import org.opensrp.common.util.DateUtil;
 import org.springframework.stereotype.Component;
 
