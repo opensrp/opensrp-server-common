@@ -1,8 +1,8 @@
 package org.opensrp.common.audit;
 
 import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertThat;
 import static org.opensrp.common.audit.AuditMessageType.NORMAL;
 
 import java.util.ArrayList;
@@ -11,9 +11,8 @@ import java.util.List;
 import org.hamcrest.Matcher;
 import org.joda.time.DateTime;
 import org.junit.Test;
-import org.motechproject.testing.utils.BaseUnitTest;
 
-public class AuditorTest extends BaseUnitTest {
+public class AuditorTest{
 	
 	@Test
 	public void shouldHaveOnlyAsManyMessagesAsTheSizeOfTheAuditorLog() {
@@ -22,7 +21,7 @@ public class AuditorTest extends BaseUnitTest {
 		audit(auditor, "Message 2");
 		audit(auditor, "Message 3");
 		
-		assertThat(auditor.messagesSince(0).size(), is(2));
+		assertEquals(auditor.messagesSince(0).size(), 2);
 	}
 	
 	@Test
@@ -130,12 +129,12 @@ public class AuditorTest extends BaseUnitTest {
 		
 		Auditor auditor = new Auditor(3);
 		
-		mockCurrentDate(timeNow);
+		//mockCurrentDate(timeNow);
 		audit(auditor, "Message 1 - Same timestamp as Messages 2 and 3");
 		audit(auditor, "Message 2 - Same timestamp as Messages 1 and 3");
 		audit(auditor, "Message 3 - Same timestamp as Messages 1 and 2");
 		
-		resetDateTimeSource();
+		//resetDateTimeSource();
 		
 		long messageIndexOfLastMessage = auditor.messagesSince(0).get(2).index();
 		
