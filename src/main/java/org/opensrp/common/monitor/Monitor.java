@@ -21,6 +21,6 @@ public class Monitor {
 	}
 	
 	public void addObservationFor(Metric metric, long value) {
-		logger.info(metric.name() + " " + value + " " + DateTime.now().getMillis());
+		logger.info(metric.name() + " " + value + " " + DateTime.now());
 	}
 }
