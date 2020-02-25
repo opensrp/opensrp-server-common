@@ -4,9 +4,9 @@ import static org.opensrp.common.AllConstants.Report.FIRST_REPORT_MONTH_OF_YEAR;
 import static org.opensrp.common.AllConstants.Report.REPORTING_MONTH_END_DAY;
 import static org.opensrp.common.AllConstants.Report.REPORTING_MONTH_START_DAY;
 
-import java.time.LocalDate;
 import java.util.Date;
 
+import org.joda.time.LocalDate;
 import org.opensrp.common.util.DateUtil;
 import org.springframework.stereotype.Component;
 
@@ -19,13 +19,13 @@ public class ReportMonth {
 	
 	public Date startDateOfReportingYear() {
 		int reportingYear = reportingYear();
-		return  LocalDate.now().withDayOfMonth(REPORTING_MONTH_START_DAY).withMonth(FIRST_REPORT_MONTH_OF_YEAR)
-		        .withYear(reportingYear);
+		return  LocalDate.now().withDayOfMonth(REPORTING_MONTH_START_DAY).withMonthOfYear(FIRST_REPORT_MONTH_OF_YEAR)
+		        .withYear(reportingYear).toDate();
 	}
 	
 	public int reportingYear() {
 		LocalDate now = LocalDate.now();
-		LocalDate beginningOfReportingYear = LocalDate.now().withMonth(FIRST_REPORT_MONTH_OF_YEAR)
+		LocalDate beginningOfReportingYear = LocalDate.now().withMonthOfYear(FIRST_REPORT_MONTH_OF_YEAR)
 		        .withDayOfMonth(REPORTING_MONTH_START_DAY);
 		return now.isBefore(beginningOfReportingYear) ? previousYear(now) : now.getYear();
 	}
@@ -34,7 +34,7 @@ public class ReportMonth {
 		if (date.getDayOfMonth() < REPORTING_MONTH_START_DAY) {
 			return new LocalDate(date.getYear(), date.getMonthOfYear(), REPORTING_MONTH_START_DAY);
 		}
-		if (date.getMonthValue() == DECEMBER) {
+		if (date.getMonthOfYear() == DECEMBER) {
 			return new LocalDate(date.plusYears(1).getYear(), JANUARY, REPORTING_MONTH_START_DAY);
 		}
 		return new LocalDate(date.getYear(), date.plusMonths(1).getMonthOfYear(), REPORTING_MONTH_START_DAY);
