@@ -7,7 +7,7 @@
 	<artifactId>opensrp-server-common</artifactId>
 	<packaging>jar</packaging>
 
-	<version>1.0.4-SNAPSHOT</version>
+	<version>2.0.0-alpha1-SNAPSHOT</version>
 
 	<name>opensrp-server-common</name>
 	<description>OpenSRP Server common module</description>
@@ -15,9 +15,7 @@
 
 	<properties>
 		<main.basedir>${project.basedir}</main.basedir>
-		<motech.version>0.11</motech.version>
-		<spring.version>3.1.0.RELEASE</spring.version>
-		<opensrp.updatePolicy>always</opensrp.updatePolicy>
+		<spring.version>5.2.3.RELEASE</spring.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<nexus-staging-maven-plugin.version>1.5.1</nexus-staging-maven-plugin.version>
 	</properties>
@@ -64,33 +62,7 @@
 			<timezone>Africa/Nairobi</timezone>
 		</developer>
 	</developers>
-
-	<repositories>
-		<repository>
-			<id>motech.opensrp</id>
-			<name>Motech Snapshots Repository</name>
-			<url>http://nexus.motechproject.org/content/repositories/opensrp-server</url>
-			<snapshots>
-				<enabled>true</enabled>
-				<updatePolicy>${opensrp.updatePolicy}</updatePolicy>
-			</snapshots>
-		</repository>
-		<repository>
-			<id>motech.nexus</id>
-			<name>Motech Snapshots Repository</name>
-			<url>http://nexus.motechproject.org/content/repositories/snapshots</url>
-			<snapshots>
-				<enabled>true</enabled>
-				<updatePolicy>${opensrp.updatePolicy}</updatePolicy>
-			</snapshots>
-		</repository>
-		<repository>
-			<id>motech.nexus.release</id>
-			<name>Motech Snapshots Repository</name>
-			<url>http://nexus.motechproject.org/content/repositories/releases</url>
-		</repository>
-	</repositories>
-
+	
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework</groupId>
@@ -130,11 +102,6 @@
 			<artifactId>spring-aspects</artifactId>
 			<version>${spring.version}</version>
 		</dependency>
-		<dependency>
-			<groupId>org.motechproject</groupId>
-			<artifactId>motech-platform-common-api</artifactId>
-			<version>${motech.version}</version>
-		</dependency>
 
 		<dependency>
 			<groupId>junit</groupId>
@@ -165,12 +132,6 @@
 			<version>3.18.1-GA</version>
 		</dependency>
 		<dependency>
-			<groupId>org.motechproject</groupId>
-			<artifactId>motech-testing-utils</artifactId>
-			<version>${motech.version}</version>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
 			<groupId>commons-lang</groupId>
 			<artifactId>commons-lang</artifactId>
 			<version>2.5</version>
@@ -195,6 +156,30 @@
 			<groupId>org.apache.httpcomponents</groupId>
 			<artifactId>httpclient</artifactId>
 			<version>4.5.2</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-annotations -->
+		<dependency>
+		    <groupId>com.fasterxml.jackson.core</groupId>
+		    <artifactId>jackson-annotations</artifactId>
+		    <version>2.10.2</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/joda-time/joda-time -->
+		<dependency>
+		    <groupId>joda-time</groupId>
+		    <artifactId>joda-time</artifactId>
+		    <version>2.10.5</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-log4j12 -->
+		<dependency>
+		    <groupId>org.slf4j</groupId>
+		    <artifactId>slf4j-log4j12</artifactId>
+		    <version>1.7.30</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/commons-io/commons-io -->
+		<dependency>
+		    <groupId>commons-io</groupId>
+		    <artifactId>commons-io</artifactId>
+		    <version>2.6</version>
 		</dependency>
 	</dependencies>
 

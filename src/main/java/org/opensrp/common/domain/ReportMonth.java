@@ -19,13 +19,13 @@ public class ReportMonth {
 	
 	public Date startDateOfReportingYear() {
 		int reportingYear = reportingYear();
-		return new LocalDate().withDayOfMonth(REPORTING_MONTH_START_DAY).withMonthOfYear(FIRST_REPORT_MONTH_OF_YEAR)
+		return  LocalDate.now().withDayOfMonth(REPORTING_MONTH_START_DAY).withMonthOfYear(FIRST_REPORT_MONTH_OF_YEAR)
 		        .withYear(reportingYear).toDate();
 	}
 	
 	public int reportingYear() {
-		LocalDate now = DateUtil.today();
-		LocalDate beginningOfReportingYear = DateUtil.today().withMonthOfYear(FIRST_REPORT_MONTH_OF_YEAR)
+		LocalDate now = LocalDate.now();
+		LocalDate beginningOfReportingYear = LocalDate.now().withMonthOfYear(FIRST_REPORT_MONTH_OF_YEAR)
 		        .withDayOfMonth(REPORTING_MONTH_START_DAY);
 		return now.isBefore(beginningOfReportingYear) ? previousYear(now) : now.getYear();
 	}
