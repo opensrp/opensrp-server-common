@@ -1,7 +1,5 @@
 package org.opensrp.common.util;
 
-import static org.motechproject.util.DateUtil.inRange;
-
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -41,7 +39,10 @@ public class DateUtil {
 	}
 	
 	public static boolean isDateWithinGivenPeriodBeforeToday(LocalDate referenceDateForSchedule, Period period) {
-		return inRange(toTime(referenceDateForSchedule), toTime(today().minus(period)), toTime(today()));
+		return (toTime(referenceDateForSchedule).isAfter(toTime(today().minus(period)))
+		        || toTime(referenceDateForSchedule).isEqual(toTime(today().minus(period))))
+		        && (toTime(referenceDateForSchedule).isBefore(toTime(today()))
+		                || toTime(referenceDateForSchedule).isEqual(toTime(today())));
 	}
 	
 	private static DateTime toTime(LocalDate referenceDateForSchedule) {
