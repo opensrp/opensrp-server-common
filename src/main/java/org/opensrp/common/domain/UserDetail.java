@@ -7,6 +7,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class UserDetail implements Serializable {
 	
+	private static final long serialVersionUID = -3954547752263574520L;
+
 	@JsonProperty("preferred_username")
 	private String userName;
 	
@@ -29,11 +31,6 @@ public class UserDetail implements Serializable {
 	
 	@JsonProperty("email_verified")
 	private boolean emailVerified;
-	
-	public UserDetail(String userName, List<String> roles) {
-		this.userName = userName;
-		this.roles = roles;
-	}
 	
 	public String getUserName() {
 		return userName;
