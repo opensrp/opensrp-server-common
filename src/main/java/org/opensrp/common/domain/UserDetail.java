@@ -9,16 +9,16 @@ public class UserDetail implements Serializable {
 	
 	private static final long serialVersionUID = -3954547752263574520L;
 
-	@JsonProperty("preferred_username")
+	@JsonProperty("username")
 	private String userName;
 	
-	@JsonProperty("sub")
+	@JsonProperty("user_id")
 	private String identifier;
 	
 	@JsonProperty
 	private List<String> roles;
 	
-	@JsonProperty("name")
+	@JsonProperty("preferred_name")
 	private String preferredName;
 	
 	@JsonProperty("family_name")
