@@ -12,13 +12,13 @@ import org.junit.Test;
  * Created by real on 12/07/17.
  */
 public class UserDetailTest {
-
+	
 	@Test
 	public void testConstructorNGetters() {
 		List<String> rolesList = new ArrayList<>();
 		rolesList.add("TLI");
 		rolesList.add("FD");
-		UserDetail userDetail = new UserDetail("real", rolesList);
+		UserDetail userDetail = UserDetail.builder().userName("real").roles(rolesList).build();//;new UserDetail("real", rolesList);
 		userDetail.setPreferredName("preferredName");
 		assertEquals("real", userDetail.getUserName());
 		assertNotSame("peal", userDetail.getUserName());
