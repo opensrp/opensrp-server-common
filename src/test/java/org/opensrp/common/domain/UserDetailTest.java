@@ -18,7 +18,7 @@ public class UserDetailTest {
 		List<String> rolesList = new ArrayList<>();
 		rolesList.add("TLI");
 		rolesList.add("FD");
-		UserDetail userDetail = UserDetail.builder().userName("real").roles(rolesList).build();//;new UserDetail("real", rolesList);
+		UserDetail userDetail = UserDetail.builder().userName("real").roles(rolesList).build();
 		userDetail.setPreferredName("preferredName");
 		assertEquals("real", userDetail.getUserName());
 		assertNotSame("peal", userDetail.getUserName());
