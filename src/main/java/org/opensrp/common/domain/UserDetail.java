@@ -5,35 +5,39 @@ import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
+
+@Builder
+@Getter
+@Setter
 public class UserDetail implements Serializable {
 	
-	@JsonProperty
+	private static final long serialVersionUID = -3954547752263574520L;
+	
+	@JsonProperty("username")
 	private String userName;
+	
+	@JsonProperty("user_id")
+	private String identifier;
 	
 	@JsonProperty
 	private List<String> roles;
 	
+	@JsonProperty("preferred_name")
 	private String preferredName;
 	
-	public UserDetail(String userName, List<String> roles) {
-		this.userName = userName;
-		this.roles = roles;
-	}
+	@JsonProperty("family_name")
+	private String familyName;
 	
-	public String getUserName() {
-		return userName;
-	}
+	@JsonProperty("given_name")
+	private String givenName;
 	
-	public List<String> getRoles() {
-		return roles;
-	}
-
-	public String getPreferredName() {
-		return preferredName;
-	}
-
-	public void setPreferredName(String preferredName) {
-		this.preferredName = preferredName;
-	}
+	@JsonProperty
+	private String email;
+	
+	@JsonProperty("email_verified")
+	private boolean emailVerified;
 	
 }
