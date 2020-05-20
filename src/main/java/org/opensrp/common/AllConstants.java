@@ -137,6 +137,8 @@ public class AllConstants {
 		
 		public static final String TEAM_ID = "teamId";
 		
+		public static final String RESOLVE_SETTINGS = "resolve";
+		
 		public static final String MVACC_DATE_FORMAT = "dd-MM-yyyy HH:mm";
 		
 		public static final String MVACC_UUID_IDENTIFIER_TYPE = "MVACC_UUID";
