@@ -40,10 +40,11 @@ jobs:
     - name: Upload coveralls report
       env:
         COVERALLS_REPO_TOKEN: ${{ secrets.COVERALLS_TOKEN }}
-        github-token: ${{ secrets.GITHUB_TOKEN }}
       run: |
          mvn -B coveralls:report --file pom.xml \
           --no-transfer-progress \
           -D serviceName=Github \
           -D branch="$BRANCH_NAME" \
           -D pullRequest="$PR_NUMBER" \
+      with:
+        github-token: ${{ secrets.GITHUB_TOKEN }}
