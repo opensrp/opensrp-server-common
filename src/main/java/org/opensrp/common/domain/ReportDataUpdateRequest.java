@@ -6,12 +6,8 @@ import java.util.List;
 import org.apache.commons.lang.builder.EqualsBuilder;
 import org.apache.commons.lang.builder.HashCodeBuilder;
 import org.apache.commons.lang.builder.ToStringBuilder;
-import org.apache.http.annotation.Contract;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
-import org.apache.http.annotation.ThreadingBehavior;
 
-@Contract(threading = ThreadingBehavior.IMMUTABLE)
 public class ReportDataUpdateRequest implements Serializable {
 	
 	@JsonProperty

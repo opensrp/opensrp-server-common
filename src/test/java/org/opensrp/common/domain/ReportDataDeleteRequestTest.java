@@ -5,6 +5,7 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotSame;
 import static org.junit.Assert.assertTrue;
 
+import nl.jqno.equalsverifier.Warning;
 import org.junit.Test;
 
 import nl.jqno.equalsverifier.EqualsVerifier;
@@ -35,7 +36,9 @@ public class ReportDataDeleteRequestTest {
 	
 	@Test
 	public void equalsContract() {
-		EqualsVerifier.forClass(ReportDataDeleteRequest.class).verify();
+		EqualsVerifier.forClass(ReportDataDeleteRequest.class)
+				.suppress(Warning.NONFINAL_FIELDS)
+				.verify();
 	}
 	
 	@Test
