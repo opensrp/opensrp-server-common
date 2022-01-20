@@ -5,11 +5,8 @@ import java.util.List;
 import org.apache.commons.lang.builder.EqualsBuilder;
 import org.apache.commons.lang.builder.HashCodeBuilder;
 import org.apache.commons.lang.builder.ToStringBuilder;
-import org.apache.http.annotation.Immutable;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-@Immutable
 public class ANMReport {
 	
 	@JsonProperty

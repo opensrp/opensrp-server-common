@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
+import nl.jqno.equalsverifier.Warning;
 import org.junit.Test;
 
 import nl.jqno.equalsverifier.EqualsVerifier;
@@ -59,6 +60,8 @@ public class ReportingDataTest {
 	
 	@Test
 	public void equalsContract() {
-		EqualsVerifier.forClass(ReportingData.class).verify();
+		EqualsVerifier.forClass(ReportingData.class)
+				.suppress(Warning.NONFINAL_FIELDS)
+				.verify();
 	}
 }

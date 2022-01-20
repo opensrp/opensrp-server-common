@@ -8,6 +8,7 @@ import static org.junit.Assert.assertTrue;
 import java.util.ArrayList;
 import java.util.List;
 
+import nl.jqno.equalsverifier.Warning;
 import org.junit.Test;
 
 import nl.jqno.equalsverifier.EqualsVerifier;
@@ -60,6 +61,7 @@ public class ReportDataUpdateRequestTest {
 	
 	@Test
 	public void equalsContract() {
-		EqualsVerifier.forClass(ReportDataUpdateRequest.class).verify();
-	}
+		EqualsVerifier.forClass(ReportDataUpdateRequest.class)
+				.suppress(Warning.NONFINAL_FIELDS)
+				.verify();	}
 }

@@ -1,22 +1,20 @@
 package org.opensrp.common.monitor;
 
-import static junit.framework.Assert.assertEquals;
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
+import static org.mockito.ArgumentMatchers.eq;
+import static org.mockito.Mockito.verify;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import org.apache.log4j.AppenderSkeleton;
-import org.apache.log4j.Level;
-import org.apache.log4j.Logger;
-import org.apache.log4j.spi.LoggingEvent;
+import org.apache.logging.log4j.Logger;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.mockito.ArgumentCaptor;
 import org.mockito.BDDMockito;
 import org.powermock.api.mockito.PowerMockito;
 import org.powermock.core.classloader.annotations.PrepareForTest;
 import org.powermock.modules.junit4.PowerMockRunner;
+import org.powermock.reflect.internal.WhiteboxImpl;
 
 @RunWith(PowerMockRunner.class)
 @PrepareForTest({ Probe.class })
@@ -38,46 +36,18 @@ public class MonitorTest {
 	
 	@Test
 	public void monitorLoggingTest() {
-		final TestAppender appender = new TestAppender();
-		final Logger logger = Logger.getLogger(Monitor.LOGGER_NAME);
-		logger.addAppender(appender);
-		try {
-			BDDMockito.given(System.nanoTime()).willReturn(100l, 150l);
-			Monitor monitor = new Monitor();
-			Probe probe = monitor.start(Metric.REPORTING_ANM_REPORTS_CACHE_TIME);
-			monitor.end(probe);
-		}
-		finally {
-			logger.removeAppender(appender);
-		}
-		
-		final List<LoggingEvent> log = appender.getLog();
-		final LoggingEvent firstLogEntry = log.get(0);
-		assertEquals(firstLogEntry.getLevel(), Level.INFO);
-		assertTrue(firstLogEntry.getRenderedMessage().contains("50"));
-		assertTrue(firstLogEntry.getRenderedMessage().contains(Metric.REPORTING_ANM_REPORTS_CACHE_TIME.name()));
-	}
-}
+		Monitor monitor = PowerMockito.spy(new Monitor());
+		Logger mockLogger = PowerMockito.mock(Logger.class);
+		WhiteboxImpl.setInternalState(monitor, "logger", mockLogger);
+		BDDMockito.given(System.nanoTime()).willReturn(100l, 150l);
+		Probe probe = monitor.start(Metric.REPORTING_ANM_REPORTS_CACHE_TIME);
+		monitor.end(probe);
+		verify(monitor).addObservationFor(eq(Metric.REPORTING_ANM_REPORTS_CACHE_TIME), eq(50L));
+		ArgumentCaptor<String> stringArgumentCaptor = ArgumentCaptor.forClass(String.class);
+		verify(mockLogger).info(stringArgumentCaptor.capture());
 
-class TestAppender extends AppenderSkeleton {
-	
-	private final List<LoggingEvent> log = new ArrayList<LoggingEvent>();
-	
-	@Override
-	public boolean requiresLayout() {
-		return false;
-	}
-	
-	@Override
-	protected void append(final LoggingEvent loggingEvent) {
-		log.add(loggingEvent);
-	}
-	
-	@Override
-	public void close() {
-	}
-	
-	public List<LoggingEvent> getLog() {
-		return new ArrayList<LoggingEvent>(log);
+		String result = stringArgumentCaptor.getValue();
+		assertTrue(result.contains("50"));
+		assertTrue(result.contains(Metric.REPORTING_ANM_REPORTS_CACHE_TIME.name()));
 	}
 }

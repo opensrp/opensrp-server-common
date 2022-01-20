@@ -6,6 +6,7 @@ import static org.junit.Assert.assertNotSame;
 import java.util.ArrayList;
 import java.util.List;
 
+import nl.jqno.equalsverifier.Warning;
 import org.junit.Test;
 
 import nl.jqno.equalsverifier.EqualsVerifier;
@@ -45,7 +46,9 @@ public class ANMReportTest {
 	
 	@Test
 	public void testEqualsAndHashCode() {
-		EqualsVerifier.forClass(ANMReport.class).verify();
+		EqualsVerifier.forClass(ANMReport.class)
+				.suppress(Warning.NONFINAL_FIELDS)
+				.verify();
 	}
 	
 	@Test

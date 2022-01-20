@@ -23,11 +23,8 @@ import java.util.Map;
 import org.apache.commons.lang.builder.EqualsBuilder;
 import org.apache.commons.lang.builder.HashCodeBuilder;
 import org.apache.commons.lang.builder.ToStringBuilder;
-import org.apache.http.annotation.Immutable;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-@Immutable
 public class ReportingData implements Serializable {
 	
 	private static final long serialVersionUID = 454645765753L;

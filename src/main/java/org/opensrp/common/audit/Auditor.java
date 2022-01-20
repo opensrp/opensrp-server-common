@@ -11,9 +11,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.locks.ReentrantLock;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.joda.time.DateTime;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Scope;
@@ -31,7 +31,7 @@ public class Auditor {
 	
 	private static ReentrantLock lock = new ReentrantLock();
 	
-	private static Logger logger = LoggerFactory.getLogger(Auditor.class.toString());
+	private static Logger logger = LogManager.getLogger(Auditor.class.toString());
 	
 	@Autowired
 	public Auditor(@Value("#{opensrp['number.of.audit.messages']}") int numberOfAuditMessagesToHoldOnTo) {
