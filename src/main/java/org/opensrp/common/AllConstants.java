@@ -83,6 +83,8 @@ public class AllConstants {
 
 		public static final String ALT_NAME = "alt_name";
 
+		public static final String NAME = "name";
+
 		public static final String BIRTH_DATE = "birthdate";
 
 		public static final String PHONE_NUMBER = "phone_number";
@@ -126,6 +128,10 @@ public class AllConstants {
 		public static final String CHILD = "ec_child";
 
 		public static final String ANC = "ec_woman";
+
+		public static final String ATTRIBUTE = "attribute";
+
+		public static final String IDENTIFIER = "identifier";
 
 		public static final String OPENMRS_UUID_IDENTIFIER_TYPE = "OPENMRS_UUID";
 	}
