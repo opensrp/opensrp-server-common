@@ -31,7 +31,7 @@ public class HttpUtilIntegrationTest {
         String inputStringWithOneSlash = "/inputString";
         String expectedOutputStringForOneSlash = "inputString";
 
-        String outputStringForOneSlash = HttpUtil.removeTrailingSlash(inputStringWithOneSlash);
+        String outputStringForOneSlash = removeTrailingSlash(inputStringWithOneSlash);
 
         assertEquals(expectedOutputStringForOneSlash, outputStringForOneSlash);
     }
@@ -41,7 +41,7 @@ public class HttpUtilIntegrationTest {
         String inputStringWithOneSlash = "inputString/";
         String expectedOutputStringForOneSlash = "inputString";
 
-        String outputStringForOneSlash = HttpUtil.removeEndingSlash(inputStringWithOneSlash);
+        String outputStringForOneSlash = removeEndingSlash(inputStringWithOneSlash);
 
         assertEquals(expectedOutputStringForOneSlash, outputStringForOneSlash);
     }
@@ -49,7 +49,7 @@ public class HttpUtilIntegrationTest {
     @Test(expected = URISyntaxException.class)
     public void testMakeConnectionThorowsUriSyntaxException() throws URISyntaxException {
         String invalidUrl = "http://invalidURL^$&%$&^";
-        makeConnection(invalidUrl, "", RequestMethod.DELETE, HttpUtil.AuthType.BASIC, "");
+        makeConnection(invalidUrl, "", RequestMethod.DELETE, AuthType.BASIC, "");
     }
 
     @Test
@@ -58,7 +58,7 @@ public class HttpUtilIntegrationTest {
         String expectedUrl = "www.google.com";
         String payLoad = "";
         RequestMethod method = RequestMethod.GET;
-        HttpUtil.AuthType authType = HttpUtil.AuthType.NONE;
+        AuthType authType = AuthType.NONE;
         HttpRequestBase requestBase = makeConnection(url, payLoad, method, authType, "");
 
         assertEquals(expectedUrl, requestBase.getURI().toString());
@@ -70,7 +70,7 @@ public class HttpUtilIntegrationTest {
         String url = "www.google.com";
         String payLoad = "";
         RequestMethod method = RequestMethod.GET;
-        HttpUtil.AuthType authType = HttpUtil.AuthType.NONE;
+        AuthType authType = AuthType.NONE;
 
         HttpRequestBase requestBase = makeConnection(url, payLoad, method, authType, "");
 
@@ -84,7 +84,7 @@ public class HttpUtilIntegrationTest {
         String payLoad = "payload";
         String expectedUrl = url + "?" + payLoad;
         RequestMethod method = RequestMethod.GET;
-        HttpUtil.AuthType authType = HttpUtil.AuthType.NONE;
+        AuthType authType = AuthType.NONE;
 
         HttpRequestBase requestBase = makeConnection(url, payLoad, method, authType, "");
 
@@ -98,7 +98,7 @@ public class HttpUtilIntegrationTest {
         String payLoad = "payload";
         String expectedUrl = url + "?" + payLoad;
         RequestMethod method = RequestMethod.POST;
-        HttpUtil.AuthType authType = HttpUtil.AuthType.NONE;
+        AuthType authType = AuthType.NONE;
 
         HttpRequestBase requestBase = makeConnection(url, payLoad, method, authType, "");
 
@@ -112,7 +112,7 @@ public class HttpUtilIntegrationTest {
         String payLoad = "payload";
         String expectedUrl = url + "?" + payLoad;
         RequestMethod method = RequestMethod.DELETE;
-        HttpUtil.AuthType authType = HttpUtil.AuthType.NONE;
+        AuthType authType = AuthType.NONE;
 
         HttpRequestBase requestBase = makeConnection(url, payLoad, method, authType, "");
 
@@ -126,7 +126,7 @@ public class HttpUtilIntegrationTest {
         String payLoad = "payload";
         String expectedUrl = url + "?" + payLoad;
         RequestMethod method = RequestMethod.PUT;
-        HttpUtil.AuthType authType = HttpUtil.AuthType.NONE;
+        AuthType authType = AuthType.NONE;
 
         HttpRequestBase requestBase = makeConnection(url, payLoad, method, authType, "");
 
@@ -140,7 +140,7 @@ public class HttpUtilIntegrationTest {
         String payLoad = "payload";
         String expectedUrl = url + "?" + payLoad;
         RequestMethod method = null;
-        HttpUtil.AuthType authType = HttpUtil.AuthType.NONE;
+        AuthType authType = AuthType.NONE;
 
         HttpRequestBase requestBase = makeConnection(url, payLoad, method, authType, "");
 
@@ -152,7 +152,7 @@ public class HttpUtilIntegrationTest {
     public void testMakingConnectionWithBasicAuthType() throws URISyntaxException {
         String url = "www.google.com";
         RequestMethod method = RequestMethod.PUT;
-        HttpUtil.AuthType authType = HttpUtil.AuthType.BASIC;
+        AuthType authType = AuthType.BASIC;
         String authString = "userName:pass";
         String expectedAuthString = "Basic " + new String(Base64.encodeBase64(authString.getBytes()));
 
@@ -169,7 +169,7 @@ public class HttpUtilIntegrationTest {
     public void testMakingConnectionWithToken() throws URISyntaxException {
         String url = "www.google.com";
         RequestMethod method = RequestMethod.PUT;
-        HttpUtil.AuthType authType = HttpUtil.AuthType.TOKEN;
+        AuthType authType = AuthType.TOKEN;
         String authString = "userName:pass";
         String expectedAuthString = "Token " + authString;
 
@@ -186,7 +186,7 @@ public class HttpUtilIntegrationTest {
     public void testSuccessfulDeleteMethod() {
         String url = "http://httpbin.org/delete";
         String payLoad = "payload";
-        HttpUtil.AuthType authType = HttpUtil.AuthType.NONE;
+        AuthType authType = AuthType.NONE;
 
         HttpResponse response = delete(url, payLoad, authType, "");
 
@@ -198,7 +198,7 @@ public class HttpUtilIntegrationTest {
     public void testUnsuccessfulDeleteMethod() {
         String url = "http://httpbin.org";
         String payLoad = "payload";
-        HttpUtil.AuthType authType = HttpUtil.AuthType.NONE;
+        AuthType authType = AuthType.NONE;
 
         HttpResponse response = delete(url, payLoad, authType, "");
 
@@ -214,7 +214,7 @@ public class HttpUtilIntegrationTest {
     @Test
     public void testSuccessfulGetMethod() {
         String url = "http://httpbin.org/get";
-        HttpUtil.AuthType authType = HttpUtil.AuthType.NONE;
+        AuthType authType = AuthType.NONE;
 
         HttpResponse response = get(url, "", authType, "");
         assertEquals(200, response.statusCode().intValue());
@@ -232,7 +232,7 @@ public class HttpUtilIntegrationTest {
     @Test
     public void testSuccessfulGetMethodWithNoContent() {
         String url = "http://httpstat.us/204";
-        HttpUtil.AuthType authType = HttpUtil.AuthType.NONE;
+        AuthType authType = AuthType.NONE;
 
         HttpResponse response = get(url, "", authType, "");
 
@@ -244,7 +244,7 @@ public class HttpUtilIntegrationTest {
     public void testUnsuccessfulGetMethod() {
         String url = "http://httpbin.org/delete";
         String payLoad = "payload";
-        HttpUtil.AuthType authType = HttpUtil.AuthType.NONE;
+        AuthType authType = AuthType.NONE;
 
         HttpResponse response = get(url, payLoad, authType, "");
 
@@ -260,7 +260,7 @@ public class HttpUtilIntegrationTest {
     @Test
     public void testSuccessfulPostMethod() {
         String url = "http://httpbin.org/post";
-        HttpUtil.AuthType authType = HttpUtil.AuthType.NONE;
+        AuthType authType = AuthType.NONE;
 
         HttpResponse response = post(url, "", "", "text", authType, "");
 
@@ -275,7 +275,7 @@ public class HttpUtilIntegrationTest {
     @Test
     public void testPostWithToken() {
         String url = "http://httpbin.org/post";
-        HttpUtil.AuthType authType = HttpUtil.AuthType.NONE;
+        AuthType authType = AuthType.NONE;
 
         HttpResponse response = postWithToken(url, "", "", "");
         assertEquals(200, response.statusCode().intValue());
@@ -285,7 +285,7 @@ public class HttpUtilIntegrationTest {
     @Test
     public void testSuccessfulPostMethodWithNoContent() {
         String url = "http://httpstat.us/204";
-        HttpUtil.AuthType authType = HttpUtil.AuthType.NONE;
+        AuthType authType = AuthType.NONE;
 
         HttpResponse response = post(url, "", "", "", authType, "");
 
@@ -297,7 +297,7 @@ public class HttpUtilIntegrationTest {
     public void testUnsuccessfulPostMethod() {
         String url = "http://httpbin.org/get";
         String payLoad = "payload";
-        HttpUtil.AuthType authType = HttpUtil.AuthType.NONE;
+        AuthType authType = AuthType.NONE;
 
         HttpResponse response = post(url, "", "", "", authType, "");
 
