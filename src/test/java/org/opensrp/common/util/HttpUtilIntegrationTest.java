@@ -275,7 +275,6 @@ public class HttpUtilIntegrationTest {
     @Test
     public void testPostWithToken() {
         String url = "http://httpbin.org/post";
-        AuthType authType = AuthType.NONE;
 
         HttpResponse response = postWithToken(url, "", "", "");
         assertEquals(200, response.statusCode().intValue());
