@@ -16,3 +16,7 @@ Common Utility functions and audit feature
   * [Ansible Playbooks](https://smartregister.atlassian.net/wiki/spaces/Documentation/pages/540901377/Ansible+Playbooks)
 * [Postgres Database Support](https://smartregister.atlassian.net/wiki/spaces/Documentation/pages/251068417/Postgres+Database+Support+as+Main+Datastore)
 * [OpenSRP Load Testing](https://smartregister.atlassian.net/wiki/spaces/Documentation/pages/268075009/OpenSRP+Load+Testing)
+
+## Publishing artifacts
+
+For more on publishing this artifact see [Publishing via Tag](https://smartregister.atlassian.net/wiki/spaces/Documentation/pages/3013902337/How+to+set+up+Server+Library+artifact+CI+CD+on+Github#Publishing-via-TAG)
