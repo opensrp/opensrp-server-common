@@ -7,20 +7,20 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class Monitor {
-	
-	public static final String LOGGER_NAME = "DRISHTI_MONITOR";
-	
-	private final Logger logger = LogManager.getLogger(LOGGER_NAME);
-	
-	public Probe start(Metric metric) {
-		return new Probe(metric);
-	}
-	
-	public void end(Probe probe) {
-		addObservationFor(probe.metric(), probe.value());
-	}
-	
-	public void addObservationFor(Metric metric, long value) {
-		logger.info(metric.name() + " " + value + " " + DateTime.now());
-	}
+
+    public static final String LOGGER_NAME = "DRISHTI_MONITOR";
+
+    private final Logger logger = LogManager.getLogger(LOGGER_NAME);
+
+    public Probe start(Metric metric) {
+        return new Probe(metric);
+    }
+
+    public void end(Probe probe) {
+        addObservationFor(probe.metric(), probe.value());
+    }
+
+    public void addObservationFor(Metric metric, long value) {
+        logger.info(metric.name() + " " + value + " " + DateTime.now());
+    }
 }
