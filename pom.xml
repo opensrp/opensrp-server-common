@@ -13,7 +13,7 @@
 
     <properties>
         <main.basedir>${project.basedir}</main.basedir>
-        <spring.version>5.2.20.RELEASE</spring.version>
+        <spring.version>5.2.22.RELEASE</spring.version>
         <powermock.version>2.0.5</powermock.version>
         <lombok.version>1.18.12</lombok.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
