@@ -32,7 +32,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-//TODO: Find difference between this and HttpUtil class.
+/**
+ * This class is marked as deprecated
+ * Use HttpUtil to access the same functionality provided by this class
+*/
+@Deprecated(since = "2.1.2-SNAPSHOT", forRemoval = true)
 @Component
 public class HttpAgent {
 
@@ -111,7 +115,7 @@ public class HttpAgent {
             KeyStore trustedKeystore = KeyStore.getInstance("BKS");
             InputStream inputStream = this.getClass().getResourceAsStream("/drishti_client.keystore");
             try {
-                trustedKeystore.load(inputStream, "phone red pen".toCharArray());
+                trustedKeystore.load(inputStream, "".toCharArray());
             } finally {
                 inputStream.close();
             }
